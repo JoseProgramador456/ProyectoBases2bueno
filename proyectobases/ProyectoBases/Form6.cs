@@ -513,7 +513,9 @@ namespace ProyectoBases
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected != 1)
                             {
-                                throw new Exception("No se pudo actualizar el asiento. Revirtiendo la transacción.");
+                                // Mensaje específico si el asiento ya está siendo comprado
+                                MessageBox.Show($"El asiento {asiento.fila}{asiento.numero} ya está en proceso de compra por otro usuario. Intenta con otro asiento.", "Asiento ocupado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                throw new Exception("Asiento en proceso de compra por otro usuario.");
                             }
                         }
 
