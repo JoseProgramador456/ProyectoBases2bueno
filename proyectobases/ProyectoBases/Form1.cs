@@ -93,8 +93,8 @@ namespace ProyectoBases
         if (rol == "Admin")
         {
             // Abre el formulario para el administrador
-            Form4 form4 = new Form4();
-                    form4.Show();
+            Creacion creacion = new Creacion();            
+                    creacion.Show();
         }
         else if (rol == "Cajero")
         {
