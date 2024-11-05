@@ -498,7 +498,7 @@ namespace ProyectoBases
                             string query = @"
                             UPDATE SA
                             SET SA.Estado = 1
-                            FROM SesionAsiento SA
+                            FROM SesionAsiento SA with (Updlock, Holdlock)
                             JOIN Asiento A ON SA.IdAsiento = A.IdAsiento
                             JOIN Sesion S ON SA.IdSesion = S.IdSesion
                             WHERE SA.IdSesion = @IdSesion AND S.IdSala = @IdSala AND A.Fila = @Fila AND A.Numero = @Numero AND SA.Estado = 0 and SA.IdSesion = @IdSesion";
